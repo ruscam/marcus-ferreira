@@ -1,3 +1,12 @@
+/**
+ * 
+ * 
+ * @author Danny & Marcus
+ * 
+ * Classe desenvolvida em java para realizar a verificação do balanceamento no
+ * número de parêntesis em uma string
+ *
+ */
 public class VeifacaBalanceamentoParentesis {
 
 	static String parenteseAberto  = "(";
@@ -15,16 +24,30 @@ public class VeifacaBalanceamentoParentesis {
 	    return parenteseAberto.indexOf(caracterAbertura) == parenteseFechado.indexOf(caracterFechamento);
 	}
 	
-	//Função recursiva que verifica se a string está balanceada
+	//Método recursivo que verifica se a string está balanceada
 	static boolean estaBalanceado(String entrada, String pilha) {
 	    return
 	        entrada.isEmpty() ?
 	            pilha.isEmpty()
 	        : estaAberto(entrada.charAt(0)) ?
-	            estaBalanceado(entrada.substring(1), entrada.charAt(0) + pilha)//chamada recursiva a função estaBalanceado(entrada, pilha);
+	            estaBalanceado(entrada.substring(1), entrada.charAt(0) + pilha)//chamada recursiva ao método estaBalanceado(entrada, pilha);
 	        : estaFechado(entrada.charAt(0)) ?
 	            !pilha.isEmpty() && corresponde(pilha.charAt(0), entrada.charAt(0))
-	              && estaBalanceado(entrada.substring(1), pilha.substring(1))//chamada recursiva a função estaBalanceado(entrada, pilha);
-	        : estaBalanceado(entrada.substring(1), pilha);//chamada recursiva a função estaBalanceado(entrada, pilha);
+	              && estaBalanceado(entrada.substring(1), pilha.substring(1))//chamada recursiva ao método estaBalanceado(entrada, pilha);
+	        : estaBalanceado(entrada.substring(1), pilha);//chamada recursiva ao método estaBalanceado(entrada, pilha);
+	}
+	
+	//Teste do funcionamento do método estaBalanceado(entrada,pilha)
+	public static void main(String[] args) {
+		
+		//Vetor para armazenar as strings que devem ser testadas.
+		String[] entrada = {"()", "((1+1)*2)+(10+2)+(((2-1)-1)*1)",
+				"O Fulano (aquele que fez aniversário hoje)perguntou por você.", ")e(", "&:)", "#:)"};
+		
+		//laço foreach que realiza a passagem por cada string contida no vetor
+		for (String stringVerificacao : entrada) {
+		        System.out.println(stringVerificacao + " = " + estaBalanceado(stringVerificacao, ""));
+		    }
+
 	}
 }
