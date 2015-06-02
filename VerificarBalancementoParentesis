@@ -1,18 +1,18 @@
 public class VeifacaBalanceamentoParentesis {
 
-	static String parentesisAberto  = "(";
-	static String parentesisFechado = ")";
+	static String parenteseAberto  = "(";
+	static String parenteseFechado = ")";
 
 	static boolean estaAberto(char caracter) {
-	    return parentesisAberto.indexOf(caracter) != -1;
+	    return parenteseAberto.indexOf(caracter) != -1;
 	}
 	
 	static boolean estaFechado(char caracter) {
-	    return parentesisFechado.indexOf(caracter) != -1;
+	    return parenteseFechado.indexOf(caracter) != -1;
 	}
 	
 	static boolean corresponde(char caracterAbertura, char caracterFechamento) {
-	    return parentesisAberto.indexOf(caracterAbertura) == parentesisFechado.indexOf(caracterFechamento);
+	    return parenteseAberto.indexOf(caracterAbertura) == parenteseFechado.indexOf(caracterFechamento);
 	}
 	
 	//Função recursiva que verifica se a string está balanceada
