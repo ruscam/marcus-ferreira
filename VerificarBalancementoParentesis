@@ -7,7 +7,7 @@
  * número de parêntesis em uma string
  *
  */
-public class VeifacaBalanceamentoParentesis {
+public class VerifacaBalanceamentoParentesis {
 
 	static String parenteseAberto  = "(";
 	static String parenteseFechado = ")";
